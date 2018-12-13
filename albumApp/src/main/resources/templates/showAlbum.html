@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layout::head"></head>
+<body>
+
+<nav th:replace="layout :: nav"></nav>
+
+<div class="container">
+
+
+    <div class="container">
+
+        <!--check whether album's user is current user-->
+        <th:block th:if="${#authentication.name == album_user.username}">
+            <a th:href="@{/image/album/upload/}" class="btn">Add Image</a>
+        </th:block>
+
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <ul th:each="image: ${images}">
+
+                <li>
+                    <img th:src="${image.imageUrl}" width="400" height="400"/>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+</body>
+</html>

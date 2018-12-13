@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layout::head"></head>
+<body>
+
+
+<nav th:replace="layout :: nav"></nav>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col s12 m6 offset-m3">
+
+                <p>Upload your image</p>
+
+                <form th:action="@{/image/album/upload/}" method="post"  enctype="multipart/form-data">
+
+                    <input type="file" name="image"/>
+                    <button name="upload">Upload</button>
+
+                </form>
+
+
+                <p>To quit from uploading click on your <strong>username</strong> on navigation Bar</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>

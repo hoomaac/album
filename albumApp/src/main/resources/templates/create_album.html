@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layout :: head"></head>
+<body>
+
+<nav th:replace="layout :: nav"></nav>
+<div th:replace="layout :: flash"></div>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col s12 m6 offset-m3">
+            <h3>Album details</h3>
+
+    <form th:action="@{/image/album/}" method="post" th:object="${album}">
+
+        <label for="name">name</label>
+        <input type="text" id="name" name="name" th:field="*{name}"/>
+
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" th:field="*{description}"/>
+
+        <button type="submit" class="btn">Create</button>
+
+    </form>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+</body>
+</html>

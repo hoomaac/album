@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layout :: head">
+</head>
+<body>
+
+
+<nav th:replace="layout :: nav"></nav>
+<div th:replace="layout :: flash"></div>
+
+<div class="container">
+
+
+
+    <div class="row">
+
+        <div class="col s12 m6 offset-m3">
+            <div th:if="${message}">
+                <h2 th:text="${message}"/>
+            </div>
+
+
+            <p>Upload your image avatar</p>
+            <form th:action="@{/image/upload}" method="post" enctype="multipart/form-data">
+
+                <input type="file" name="file"/>
+
+                <button type="submit">Upload</button>
+
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

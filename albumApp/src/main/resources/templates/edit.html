@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layout :: head"></head>
+
+
+<body>
+
+<nav th:replace="layout :: nav"></nav>
+<div th:replace="layout :: flash"></div>
+
+
+<div class="container">
+
+    <div class="row">
+    <div class="col s12 m6 offset-m3">
+
+        <div th:if="${error}">
+            <h2 th:text="${error}"/>
+        </div>
+
+        <p>Change Information</p>
+
+        <form th:action="@{/edit}" th:object="${user}" method="post" enctype="multipart/form-data">
+
+            <input type="text" name="username" th:field="*{username}" placeholder="new username"/>
+
+            <input type="date" name="birthdate" th:field="*{birthDate}"  placeholder="Birth Date"/>
+
+            <input type="password" name="password" th:field="*{password}" th:required="true" placeholder="Enter your password"/>
+
+            <button class="btn" type="submit">Edit</button>
+
+        </form>
+
+
+    </div>
+
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+</body>
+</html>

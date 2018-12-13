@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layout :: head"></head>
+<body>
+    <nav th:replace="layout :: nav"></nav>
+    <div th:replace="layout :: flash"></div>
+
+
+    <div class="main">
+
+    <div class="container">
+
+        <div class="main">
+
+        <div class="row">
+
+            <div class="col s12 m6">
+
+                <div class="card" th:each="album : ${albums}">
+                    <div class="card-image">
+                        <img th:src="${album.images[0].imageUrl}"/>
+                        <span class="card-title" th:text="${album.name}"></span>
+                    </div>
+                    <div class="card-content">
+                        <form th:action="@{/image/album/show}" method="post">
+                            <input type="hidden" th:value="${album.id}" name="id"/>
+                            <input type="submit" value="View" class="btn"/>
+                        </form>
+                        <p th:text="${album.description}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul>
+            <li>
+                <div th:if="${message}">
+                    <h2 th:text="${message}"/>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    </div>
+
+    </div>
+
+
+    <footer th:replace="layout :: footer"></footer>
+
+
+    <div th:replace="layout :: scripts"></div>
+</body>
+</html>
